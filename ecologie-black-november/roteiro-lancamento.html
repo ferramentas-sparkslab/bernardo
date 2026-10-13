@@ -1,0 +1,495 @@
+<title>Roteiro Black November Ecologie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+/* Layout: relatório em folha creme — cabeçalho de marca, cards de datas-chave, calendário em faixas, tabela de fases com coluna lateral de cards, igual ao ID visual dos relatórios Ecologie */
+:root {
+  --bg: #f2eee5;
+  --sheet: #f8f5ee;
+  --card: #fdfbf7;
+  --ink: #1c2620;
+  --muted: #6f7069;
+  --line: #e2dccf;
+  --forest: #1f3b29;
+  --forest-ink: #f3efe4;
+  --leaf: #4d8a58;
+  --copper: #b9733a;
+  --coral: #c8573b;
+  --track: #e9e3d6;
+  --row-alt: #f6f2ea;
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101612; --sheet: #141c17; --card: #1a241e; --ink: #ebe6da; --muted: #a2a397;
+    --line: #2c3830; --forest: #243f2e; --forest-ink: #eef0e6; --leaf: #7db588; --copper: #d8955a;
+    --coral: #e27a5f; --track: #26312a; --row-alt: #18211b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101612; --sheet: #141c17; --card: #1a241e; --ink: #ebe6da; --muted: #a2a397;
+  --line: #2c3830; --forest: #243f2e; --forest-ink: #eef0e6; --leaf: #7db588; --copper: #d8955a;
+  --coral: #e27a5f; --track: #26312a; --row-alt: #18211b; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; padding-inline: 16px; padding-block: 24px 48px; }
+.sheet { max-width: 1180px; margin: 0 auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 6px; padding: clamp(20px, 4vw, 44px); display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* cabeçalho */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.mark { width: 40px; height: 40px; border-radius: 6px; background: var(--forest); display: grid; place-items: center; }
+.mark svg { width: 20px; height: 20px; }
+.brand-name { font-family: var(--serif); font-size: 22px; line-height: 1.1; }
+.brand-sub, .eyebrow, .label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.pill { border: 1.5px solid var(--forest); color: var(--forest); border-radius: 999px; padding: 8px 18px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+:root[data-theme="dark"] .pill { border-color: var(--leaf); color: var(--leaf); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pill { border-color: var(--leaf); color: var(--leaf); } }
+
+.intro { display: grid; gap: 14px; }
+.eyebrow { display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--copper); }
+.eyebrow b { color: var(--leaf); font-weight: 700; }
+h1 { font-size: clamp(34px, 5.4vw, 56px); line-height: 1.05; }
+h1 em { color: var(--leaf); font-style: italic; }
+.lead { max-width: 68ch; color: var(--muted); font-size: 16px; }
+.lead strong { color: var(--ink); font-weight: 600; }
+
+/* cards de datas */
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.kpi { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 8px; padding: 16px 18px; display: grid; gap: 4px; align-content: start; }
+.kpi .label { color: var(--c); }
+.kpi .big { font-family: var(--serif); font-size: 34px; line-height: 1.1; }
+.kpi .big small { font-size: 16px; color: var(--muted); }
+.kpi p { font-size: 13px; color: var(--muted); }
+
+/* títulos de seção */
+.sec { display: grid; gap: 18px; }
+.sec-head { display: grid; gap: 6px; }
+h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.15; }
+h2 em { color: var(--leaf); }
+.sec-head p { color: var(--muted); max-width: 70ch; }
+
+/* calendário */
+.gantt-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; }
+.gantt { min-width: 760px; padding: 18px 20px 14px; display: grid; grid-template-columns: 170px 1fr; row-gap: 10px; column-gap: 16px; }
+.g-name { font-size: 13px; font-weight: 600; align-self: center; }
+.g-name span { display: block; font-size: 11.5px; font-weight: 400; color: var(--muted); }
+.g-track { position: relative; display: grid; grid-template-columns: repeat(45, 1fr); height: 30px; background: var(--row-alt); border-radius: 4px; }
+.g-tick { position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--line); }
+.g-bar { position: relative; z-index: 1; grid-row: 1; height: 100%; border-radius: 4px; background: var(--c); color: #fff; font-size: 11px; font-weight: 600; display: flex; align-items: center; padding-inline: 8px; white-space: nowrap; overflow: hidden; }
+.g-bar.ghost { background: transparent; border: 1.5px dashed var(--c); color: var(--c); }
+.g-axis { grid-column: 2; display: grid; grid-template-columns: repeat(45, 1fr); font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.g-axis span { white-space: nowrap; }
+.g-axis span.hot { color: var(--coral); font-weight: 700; }
+.g-legend { grid-column: 1; }
+
+/* tabela + lateral */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+.table-wrap { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--card); }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 720px; }
+thead th { background: var(--forest); color: var(--forest-ink); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-align: left; padding: 16px 14px; }
+tbody td { padding: 14px; border-top: 1px solid var(--line); vertical-align: top; font-size: 13.5px; }
+tbody tr:nth-child(even) td { background: var(--row-alt); }
+td.phase { font-weight: 600; white-space: nowrap; }
+td.phase i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; background: var(--c); margin-right: 8px; }
+td.when { white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.cost { white-space: nowrap; font-family: var(--serif); font-size: 15px; }
+td.what { color: var(--ink); }
+td.what ul { margin: 0; padding-left: 16px; }
+td.what li + li { margin-top: 2px; }
+tr.peak td { background: color-mix(in srgb, var(--coral) 9%, var(--card)) !important; }
+
+.side { display: grid; gap: 14px; }
+.note { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: grid; gap: 6px; }
+.note h3 { font-size: 22px; line-height: 1.2; }
+.note h3 small { font-size: 13px; color: var(--muted); font-family: var(--sans); }
+.note p { font-size: 13px; color: var(--muted); }
+.note .label.green { color: var(--leaf); }
+.note .label.copper { color: var(--copper); }
+.note .label.coral { color: var(--coral); }
+.quote { font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.3; color: var(--ink); }
+
+/* entregas */
+.deliver { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.task { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; }
+.task-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.task h3 { font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: 0; }
+.task p { font-size: 13px; color: var(--muted); }
+.chip { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; white-space: nowrap; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c); }
+
+/* fluxo pós-abertura */
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.step { padding: 20px; display: grid; gap: 8px; align-content: start; border-left: 1px solid var(--line); }
+.step:first-child { border-left: 0; }
+.step .date { font-family: var(--serif); font-size: 28px; line-height: 1.1; color: var(--c); }
+.step h3 { font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: 0; }
+.step p { font-size: 13px; color: var(--muted); }
+
+/* investimento */
+.money-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.money { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: grid; gap: 6px; align-content: start; }
+.money .big { font-family: var(--serif); font-size: 32px; line-height: 1.1; }
+.money p { font-size: 13px; color: var(--muted); }
+.money.total { background: var(--forest); border-color: var(--forest); color: var(--forest-ink); }
+.money.total .label, .money.total p { color: color-mix(in srgb, var(--forest-ink) 72%, transparent); }
+.slider { display: grid; gap: 6px; margin-top: 4px; }
+.slider label { font-size: 12.5px; color: var(--muted); }
+.slider label b { color: var(--ink); }
+input[type=range] { width: 100%; accent-color: var(--leaf); }
+input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+
+/* dados */
+.data { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.foot { border-top: 1px solid var(--line); padding-top: 16px; display: flex; gap: 12px; align-items: flex-start; font-size: 12px; color: var(--muted); }
+.foot::before { content: ""; flex: 0 0 20px; height: 1.5px; background: var(--copper); margin-top: 8px; }
+
+@media (max-width: 1000px) {
+  .split { grid-template-columns: 1fr; }
+  .side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .data { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 820px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deliver, .money-grid { grid-template-columns: 1fr 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .step { border-left: 0; border-top: 1px solid var(--line); }
+  .step:first-child { border-top: 0; }
+}
+@media (max-width: 560px) {
+  .kpis, .deliver, .money-grid, .side, .data { grid-template-columns: 1fr; }
+}
+</style>
+
+<main class="sheet">
+
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f3efe4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z"/><path d="M12 14.5c0-3.2-2.4-5.2-5.6-5.2 0 3.2 2.4 5.2 5.6 5.2Z"/></svg>
+      </div>
+      <div>
+        <div class="brand-name">Ecologie</div>
+        <div class="brand-sub">Black November · Sparks Lab</div>
+      </div>
+    </div>
+    <div class="pill">14 out – 27 nov 2026 · lançamento</div>
+  </header>
+
+  <section class="intro">
+    <div class="eyebrow"><b>Roteiro</b> · do teste de criativos ao lançamento</div>
+    <h1>O caminho até o dia <em>12 de novembro</em></h1>
+    <p class="lead">Lançamento meteórico pelo WhatsApp. Os anúncios levam pessoas para um <strong>grupo</strong>, aquecemos esse grupo por 11 dias e abrimos a oferta de <strong>1 ano de proteção e nutrição Ecologie</strong> por 48 horas. Quem não comprar segue no grupo para ofertas menores e uma segunda chamada no dia 27, a Black Friday.</p>
+  </section>
+
+  <section class="kpis" aria-label="Datas-chave">
+    <div class="kpi" style="--c: var(--leaf)">
+      <span class="label">Teste de criativos</span>
+      <span class="big num">19/out</span>
+      <p>10 criativos a R$20/dia cada, até 01/nov</p>
+    </div>
+    <div class="kpi" style="--c: var(--forest)">
+      <span class="label">Captação forte</span>
+      <span class="big num">02/nov</span>
+      <p>R$150/dia por criativo, até 12/nov</p>
+    </div>
+    <div class="kpi" style="--c: var(--coral)">
+      <span class="label">Abertura da oferta</span>
+      <span class="big num">12/nov <small>a 13/nov</small></span>
+      <p>Link no grupo, válido até 23h59 do dia 13</p>
+    </div>
+    <div class="kpi" style="--c: var(--copper)">
+      <span class="label">Segunda chamada</span>
+      <span class="big num">27/nov</span>
+      <p>Oferta principal reaberta, só nesse dia</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Calendário</h2>
+      <p>Cada faixa é uma frente de trabalho. As linhas verticais marcam as segundas-feiras.</p>
+    </div>
+    <div class="gantt-wrap">
+      <div class="gantt" id="gantt" role="img" aria-label="Calendário de 14 de outubro a 27 de novembro de 2026"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Fase a fase</h2>
+      <p>O que acontece em cada etapa, quanto investimos em mídia e o que fica pronto.</p>
+    </div>
+    <div class="split">
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Fase</th><th>Período</th><th>O que acontece</th><th>Mídia</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="phase" style="--c: var(--muted)"><i></i>Produção</td>
+                <td class="when">14 – 19/out</td>
+                <td class="what">Oferta, mote, cadência e roteiros do WhatsApp, criativos estáticos e gravação dos vídeos. A edição dos vídeos fica para 20 – 26/out.</td>
+                <td class="cost">–</td>
+              </tr>
+              <tr>
+                <td class="phase" style="--c: var(--leaf)"><i></i>Teste de criativos</td>
+                <td class="when">19/out – 01/nov</td>
+                <td class="what">Cerca de 10 criativos rodando com verba baixa para descobrir quais trazem lead mais barato para o grupo. Os estáticos sobem primeiro e os vídeos entram quando a edição terminar.</td>
+                <td class="cost num">R$20/dia<br><small style="color:var(--muted);font-family:var(--sans);font-size:12px">por criativo</small></td>
+              </tr>
+              <tr>
+                <td class="phase" style="--c: var(--forest)"><i></i>Captação forte</td>
+                <td class="when">02 – 12/nov</td>
+                <td class="what">Escala dos criativos vencedores do teste para encher o grupo do WhatsApp.</td>
+                <td class="cost num">R$150/dia<br><small style="color:var(--muted);font-family:var(--sans);font-size:12px">por criativo</small></td>
+              </tr>
+              <tr>
+                <td class="phase" style="--c: var(--copper)"><i></i>Aquecimento</td>
+                <td class="when">02 – 12/nov</td>
+                <td class="what">Mensagens, áudios e vídeos no grupo, disparados do número próprio da Sparks, para criar desejo e expectativa pela abertura.</td>
+                <td class="cost">–</td>
+              </tr>
+              <tr class="peak">
+                <td class="phase" style="--c: var(--coral)"><i></i>Abertura</td>
+                <td class="when">12 – 13/nov</td>
+                <td class="what">Link da oferta enviado no grupo. A oferta fica aberta do dia 12 até o fim do dia 13.</td>
+                <td class="cost">–</td>
+              </tr>
+              <tr>
+                <td class="phase" style="--c: var(--copper)"><i></i>Ofertas menores</td>
+                <td class="when">14 – 26/nov</td>
+                <td class="what">Sequência de ofertas pequenas para quem continua no grupo e não aproveitou a abertura.</td>
+                <td class="cost">–</td>
+              </tr>
+              <tr class="peak">
+                <td class="phase" style="--c: var(--coral)"><i></i>Segunda chamada</td>
+                <td class="when">27/nov</td>
+                <td class="what">Na Black Friday, reabrimos a oferta principal "a pedidos de quem não conseguiu comprar". Vale só para esse dia.</td>
+                <td class="cost">–</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="note">
+          <span class="label green">A oferta</span>
+          <h3>1 ano de proteção e nutrição</h3>
+          <p>Kit de e-commerce com produtos Ecologie para 12 meses, vendido como a maior condição do ano.</p>
+        </div>
+        <div class="note">
+          <span class="label copper">Mote da campanha · em definição</span>
+          <p class="quote">"1 ano de Ecologie pela metade do preço"</p>
+          <p class="quote">"A maior oferta da Black November"</p>
+        </div>
+        <div class="note">
+          <span class="label">Canal</span>
+          <h3>WhatsApp <small>número Sparks</small></h3>
+          <p>Grupo como base de aquecimento e venda. Os disparos saem de um número próprio da Sparks.</p>
+        </div>
+        <div class="note">
+          <span class="label coral">Janela de compra</span>
+          <h3 class="num">48h <small>+ 24h no dia 27</small></h3>
+          <p>A urgência é real: a oferta principal só existe nesses três dias.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Entregas desta semana · <em>14 a 19/out</em></h2>
+      <p>Tudo precisa estar pronto para a campanha de teste subir no dia 19. Os vídeos entram na campanha quando a edição terminar.</p>
+    </div>
+    <div class="deliver">
+      <div class="task">
+        <div class="task-top"><h3>Oferta e-commerce</h3><span class="chip" style="--c: var(--coral)">até 19/out</span></div>
+        <p>Composição do kit de 1 ano, preço "de / por" e página de compra.</p>
+      </div>
+      <div class="task">
+        <div class="task-top"><h3>Mote da campanha</h3><span class="chip" style="--c: var(--coral)">até 19/out</span></div>
+        <p>Conceito Black November que guia anúncios, grupo e oferta.</p>
+      </div>
+      <div class="task">
+        <div class="task-top"><h3>Cadência no WhatsApp</h3><span class="chip" style="--c: var(--coral)">até 19/out</span></div>
+        <p>Sequência de mensagens de aquecimento de 02 a 12/nov, abertura e pós.</p>
+      </div>
+      <div class="task">
+        <div class="task-top"><h3>Roteiros de vídeo e áudio</h3><span class="chip" style="--c: var(--coral)">até 19/out</span></div>
+        <p>Conteúdos para enviar no grupo durante o aquecimento.</p>
+      </div>
+      <div class="task">
+        <div class="task-top"><h3>Criativos estáticos</h3><span class="chip" style="--c: var(--coral)">até 19/out</span></div>
+        <p>Peças para os anúncios do teste. Sobem no primeiro dia.</p>
+      </div>
+      <div class="task">
+        <div class="task-top"><h3>Criativos em vídeo</h3><span class="chip" style="--c: var(--copper)">edição 20 – 26/out</span></div>
+        <p>Gravação esta semana. Entram na campanha assim que ficarem prontos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Depois da abertura</h2>
+      <p>O grupo continua sendo um ativo depois do dia 13. A lista é trabalhada até a Black Friday.</p>
+    </div>
+    <div class="flow">
+      <div class="step" style="--c: var(--coral)">
+        <span class="date num">12 – 13/nov</span>
+        <h3>Abertura</h3>
+        <p>Oferta principal liberada no grupo por dois dias.</p>
+      </div>
+      <div class="step" style="--c: var(--copper)">
+        <span class="date num">14 – 26/nov</span>
+        <h3>Ofertas menores</h3>
+        <p>Condições pontuais para quem ficou no grupo sem comprar, mantendo a lista ativa.</p>
+      </div>
+      <div class="step" style="--c: var(--coral)">
+        <span class="date num">27/nov</span>
+        <h3>Segunda chamada</h3>
+        <p>Reabertura da oferta principal só no dia da Black Friday, para quem pediu outra chance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Investimento em mídia</h2>
+      <p>O teste tem valor fixo. Na captação, o total depende de quantos criativos vencedores escalarmos. Mova o controle para simular.</p>
+    </div>
+    <div class="money-grid">
+      <div class="money">
+        <span class="label">Teste · 19/out – 01/nov</span>
+        <span class="big num">R$2.800</span>
+        <p>10 criativos × R$20/dia × 14 dias</p>
+      </div>
+      <div class="money">
+        <span class="label">Captação · 02 – 12/nov</span>
+        <span class="big num" id="cap-total">R$8.250</span>
+        <p id="cap-detail">5 criativos × R$150/dia × 11 dias</p>
+        <div class="slider">
+          <label for="cap-n">Criativos na captação: <b id="cap-n-out">5</b></label>
+          <input type="range" id="cap-n" min="1" max="10" step="1" value="5">
+        </div>
+      </div>
+      <div class="money total">
+        <span class="label">Total simulado</span>
+        <span class="big num" id="grand-total">R$11.050</span>
+        <p>Teste + captação em Meta Ads, de 19/out a 12/nov.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Ponto de partida · <em>jul – set 2026</em></h2>
+      <p>Dados de Meta Ads e Yampi dos últimos três meses que orientam a segmentação da captação.</p>
+    </div>
+    <div class="data">
+      <div class="note">
+        <span class="label green">Base atual</span>
+        <h3 class="num">ROAS 2,46</h3>
+        <p>R$39.527 investidos, R$97.069 de receita, 594 pedidos e CPA de R$66,54.</p>
+      </div>
+      <div class="note">
+        <span class="label">Concentração</span>
+        <h3 class="num">79% <small>da verba</small></h3>
+        <p>SP, RJ e MG somam 79% do investimento e 81% da receita. São o foco da captação.</p>
+      </div>
+      <div class="note">
+        <span class="label green">Melhor estado</span>
+        <h3>Minas Gerais <small class="num">3,01</small></h3>
+        <p>Maior ROAS e menor CPA (R$57) entre os estados com mais de 20 pedidos.</p>
+      </div>
+      <div class="note">
+        <span class="label coral">Atenção</span>
+        <h3>Santa Catarina <small class="num">1,04</small></h3>
+        <p>R$1.020 para 7 pedidos. Vale rever antes de escalar. São Paulo também caiu para 2,02 em setembro.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Datas de 2026. Valores de mídia referem-se a Meta Ads. A verba de captação é simulada e será definida pelos resultados do teste. Dados de jul – set: receita Yampi (com frete) ÷ investimento Meta, pedidos cancelados excluídos.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  // dia 0 = 14/out; novembro: índice = 17 + dia
+  const d = (m, day) => m === 10 ? day - 14 : 17 + day;
+  const rows = [
+    { name: "Produção", sub: "oferta, copy, criativos", c: "var(--muted)", bars: [[d(10,14), d(10,19), "14 – 19/out"]] },
+    { name: "Edição dos vídeos", sub: "entram no teste", c: "var(--copper)", ghost: true, bars: [[d(10,20), d(10,26), "20 – 26/out"]] },
+    { name: "Teste de criativos", sub: "R$20/dia por criativo", c: "var(--leaf)", bars: [[d(10,19), d(11,1), "19/out – 01/nov"]] },
+    { name: "Captação forte", sub: "R$150/dia por criativo", c: "var(--forest)", bars: [[d(11,2), d(11,12), "02 – 12/nov"]] },
+    { name: "Aquecimento no grupo", sub: "WhatsApp Sparks", c: "var(--copper)", bars: [[d(11,2), d(11,12), "mensagens · áudios · vídeos"]] },
+    { name: "Oferta principal", sub: "abertura e 2ª chamada", c: "var(--coral)", bars: [[d(11,12), d(11,13), ""], [d(11,27), d(11,27), ""]] },
+    { name: "Ofertas menores", sub: "quem ficou no grupo", c: "var(--copper)", ghost: true, bars: [[d(11,14), d(11,26), "14 – 26/nov"]] }
+  ];
+  const g = document.getElementById("gantt");
+  rows.forEach(r => {
+    const n = document.createElement("div");
+    n.className = "g-name";
+    n.innerHTML = r.name + "<span>" + r.sub + "</span>";
+    const t = document.createElement("div");
+    t.className = "g-track";
+    [5, 12, 19, 26, 33, 40].forEach(i => {
+      const k = document.createElement("i");
+      k.className = "g-tick";
+      k.style.left = (i / 45 * 100) + "%";
+      t.appendChild(k);
+    });
+    r.bars.forEach(([s, e, label]) => {
+      const b = document.createElement("div");
+      b.className = "g-bar" + (r.ghost ? " ghost" : "");
+      b.style.setProperty("--c", r.c);
+      b.style.gridColumn = (s + 1) + " / " + (e + 2);
+      b.textContent = label;
+      b.title = r.name + (label ? ": " + label : "");
+      if (e - s < 2) { b.style.justifyContent = "center"; b.style.paddingInline = "0"; }
+      t.appendChild(b);
+    });
+    g.append(n, t);
+  });
+  const axis = document.createElement("div");
+  axis.className = "g-axis";
+  [[d(10,14),"14/out"],[d(10,19),"19"],[d(10,26),"26"],[d(11,2),"02/nov"],[d(11,9),"09"],[d(11,12),"12",1],[d(11,16),"16"],[d(11,23),"23"],[d(11,27),"27",1]].forEach(([i, l, hot]) => {
+    const s = document.createElement("span");
+    s.style.gridColumn = (i + 1) + " / span 3";
+    s.style.gridRow = 1;
+    if (hot) s.className = "hot";
+    s.textContent = l;
+    axis.appendChild(s);
+  });
+  g.append(document.createElement("div"), axis);
+  g.lastChild.previousSibling.className = "g-legend";
+
+  // simulação de verba
+  const fmt = v => "R$" + v.toLocaleString("pt-BR");
+  const TEST = 10 * 20 * 14;
+  const input = document.getElementById("cap-n");
+  const update = () => {
+    const n = Number(input.value);
+    const cap = n * 150 * 11;
+    document.getElementById("cap-n-out").textContent = n;
+    document.getElementById("cap-total").textContent = fmt(cap);
+    document.getElementById("cap-detail").textContent = n + (n === 1 ? " criativo" : " criativos") + " × R$150/dia × 11 dias";
+    document.getElementById("grand-total").textContent = fmt(TEST + cap);
+  };
+  input.addEventListener("input", update);
+  update();
+})();
+</script>
