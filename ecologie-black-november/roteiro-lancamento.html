@@ -193,12 +193,12 @@ input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offs
     <div class="kpi" style="--c: var(--leaf)">
       <span class="label">Teste de criativos</span>
       <span class="big num">19/out</span>
-      <p>10 criativos a R$20/dia cada, até 01/nov</p>
+      <p>R$40/dia em duas ondas de criativos, até 01/nov</p>
     </div>
     <div class="kpi" style="--c: var(--forest)">
       <span class="label">Captação forte</span>
       <span class="big num">02/nov</span>
-      <p>R$150/dia por criativo, até 12/nov</p>
+      <p>R$150/dia nos criativos vencedores, até 12/nov</p>
     </div>
     <div class="kpi" style="--c: var(--coral)">
       <span class="label">Abertura da oferta</span>
@@ -244,14 +244,14 @@ input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offs
               <tr>
                 <td class="phase" style="--c: var(--leaf)"><i></i>Teste de criativos</td>
                 <td class="when">19/out – 01/nov</td>
-                <td class="what">Cerca de 10 criativos rodando com verba baixa para descobrir quais trazem lead mais barato para o grupo. Os estáticos sobem primeiro e os vídeos entram quando a edição terminar.</td>
-                <td class="cost num">R$20/dia<br><small style="color:var(--muted);font-family:var(--sans);font-size:12px">por criativo</small></td>
+                <td class="what">Duas ondas de 7 dias para descobrir quais criativos trazem membro mais barato para o grupo.<ul><li>Onda 1 (19 – 25/out): 4 estáticos a R$10/dia cada.</li><li>Onda 2 (26/out – 01/nov): os 2 melhores da onda 1 e 2 vídeos novos, a R$10/dia cada.</li></ul></td>
+                <td class="cost num">R$40/dia<br><small style="color:var(--muted);font-family:var(--sans);font-size:12px">total da campanha</small></td>
               </tr>
               <tr>
                 <td class="phase" style="--c: var(--forest)"><i></i>Captação forte</td>
                 <td class="when">02 – 12/nov</td>
                 <td class="what">Escala dos criativos vencedores do teste para encher o grupo do WhatsApp.</td>
-                <td class="cost num">R$150/dia<br><small style="color:var(--muted);font-family:var(--sans);font-size:12px">por criativo</small></td>
+                <td class="cost num">R$150/dia<br><small style="color:var(--muted);font-family:var(--sans);font-size:12px">total da campanha</small></td>
               </tr>
               <tr>
                 <td class="phase" style="--c: var(--copper)"><i></i>Aquecimento</td>
@@ -367,26 +367,22 @@ input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offs
   <section class="sec">
     <div class="sec-head">
       <h2>Investimento em mídia</h2>
-      <p>O teste tem valor fixo. Na captação, o total depende de quantos criativos vencedores escalarmos. Mova o controle para simular.</p>
+      <p>Verba diária fixa em Meta Ads nas duas fases. Os dias contam do primeiro ao último dia de cada fase.</p>
     </div>
     <div class="money-grid">
       <div class="money">
         <span class="label">Teste · 19/out – 01/nov</span>
-        <span class="big num">R$2.800</span>
-        <p>10 criativos × R$20/dia × 14 dias</p>
+        <span class="big num">R$560</span>
+        <p>R$40/dia × 14 dias, em duas ondas de 4 criativos a R$10/dia cada</p>
       </div>
       <div class="money">
         <span class="label">Captação · 02 – 12/nov</span>
-        <span class="big num" id="cap-total">R$8.250</span>
-        <p id="cap-detail">5 criativos × R$150/dia × 11 dias</p>
-        <div class="slider">
-          <label for="cap-n">Criativos na captação: <b id="cap-n-out">5</b></label>
-          <input type="range" id="cap-n" min="1" max="10" step="1" value="5">
-        </div>
+        <span class="big num">R$1.650</span>
+        <p>R$150/dia × 11 dias, concentrados nos criativos vencedores do teste</p>
       </div>
       <div class="money total">
-        <span class="label">Total simulado</span>
-        <span class="big num" id="grand-total">R$11.050</span>
+        <span class="label">Total em mídia</span>
+        <span class="big num">R$2.210</span>
         <p>Teste + captação em Meta Ads, de 19/out a 12/nov.</p>
       </div>
     </div>
@@ -422,7 +418,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offs
   </section>
 
   <footer class="foot">
-    <p>Datas de 2026. Valores de mídia referem-se a Meta Ads. A verba de captação é simulada e será definida pelos resultados do teste. Dados de jul – set: receita Yampi (com frete) ÷ investimento Meta, pedidos cancelados excluídos.</p>
+    <p>Datas de 2026. Valores de mídia referem-se a Meta Ads. Dados de jul – set: receita Yampi (com frete) ÷ investimento Meta, pedidos cancelados excluídos.</p>
   </footer>
 </main>
 
@@ -433,8 +429,8 @@ input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offs
   const rows = [
     { name: "Produção", sub: "oferta, copy, criativos", c: "var(--muted)", bars: [[d(10,14), d(10,19), "14 – 19/out"]] },
     { name: "Edição dos vídeos", sub: "entram no teste", c: "var(--copper)", ghost: true, bars: [[d(10,20), d(10,26), "20 – 26/out"]] },
-    { name: "Teste de criativos", sub: "R$20/dia por criativo", c: "var(--leaf)", bars: [[d(10,19), d(11,1), "19/out – 01/nov"]] },
-    { name: "Captação forte", sub: "R$150/dia por criativo", c: "var(--forest)", bars: [[d(11,2), d(11,12), "02 – 12/nov"]] },
+    { name: "Teste de criativos", sub: "R$40/dia · 2 ondas", c: "var(--leaf)", bars: [[d(10,19), d(10,25), "Onda 1 · estáticos"], [d(10,26), d(11,1), "Onda 2 · + vídeos"]] },
+    { name: "Captação forte", sub: "R$150/dia", c: "var(--forest)", bars: [[d(11,2), d(11,12), "02 – 12/nov"]] },
     { name: "Aquecimento no grupo", sub: "WhatsApp Sparks", c: "var(--copper)", bars: [[d(11,2), d(11,12), "mensagens · áudios · vídeos"]] },
     { name: "Oferta principal", sub: "abertura e 2ª chamada", c: "var(--coral)", bars: [[d(11,12), d(11,13), ""], [d(11,27), d(11,27), ""]] },
     { name: "Ofertas menores", sub: "quem ficou no grupo", c: "var(--copper)", ghost: true, bars: [[d(11,14), d(11,26), "14 – 26/nov"]] }
@@ -477,19 +473,5 @@ input[type=range]:focus-visible { outline: 2px solid var(--copper); outline-offs
   g.append(document.createElement("div"), axis);
   g.lastChild.previousSibling.className = "g-legend";
 
-  // simulação de verba
-  const fmt = v => "R$" + v.toLocaleString("pt-BR");
-  const TEST = 10 * 20 * 14;
-  const input = document.getElementById("cap-n");
-  const update = () => {
-    const n = Number(input.value);
-    const cap = n * 150 * 11;
-    document.getElementById("cap-n-out").textContent = n;
-    document.getElementById("cap-total").textContent = fmt(cap);
-    document.getElementById("cap-detail").textContent = n + (n === 1 ? " criativo" : " criativos") + " × R$150/dia × 11 dias";
-    document.getElementById("grand-total").textContent = fmt(TEST + cap);
-  };
-  input.addEventListener("input", update);
-  update();
 })();
 </script>
