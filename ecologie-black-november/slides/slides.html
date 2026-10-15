@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Slides Black November Ecologie</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+:root {
+  --bg: #f2eee5; --sheet: #f8f5ee; --card: #fdfbf7; --ink: #1c2620; --muted: #6f7069; --line: #e2dccf;
+  --forest: #1f3b29; --forest-ink: #f3efe4; --leaf: #4d8a58; --copper: #b9733a; --coral: #c8573b; --track: #ece6da;
+  --gold: #e7b54a;
+  --serif: "Fraunces", Georgia, serif; --sans: "DM Sans", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: #888; font-family: var(--sans); color: var(--ink); }
+.slide { width: 1920px; height: 1080px; background: var(--sheet); padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; position: relative; overflow: hidden; margin-bottom: 40px; }
+.top { display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 16px; }
+.mark { width: 56px; height: 56px; border-radius: 8px; background: var(--forest); display: grid; place-items: center; }
+.mark svg { width: 28px; height: 28px; }
+.brand-name { font-family: var(--serif); font-size: 30px; line-height: 1.05; }
+.label, .brand-sub { font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.pill { border: 2px solid var(--forest); color: var(--forest); border-radius: 999px; padding: 12px 26px; font-size: 15px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; gap: 16px; font-size: 16px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.eyebrow::before { content: ""; width: 40px; height: 2px; background: var(--copper); }
+.eyebrow b { color: var(--leaf); }
+h1 { font-family: var(--serif); font-weight: 500; font-size: 92px; line-height: 1.02; letter-spacing: -0.015em; }
+h1 em, h2 em { color: var(--leaf); font-style: italic; }
+h2 { font-family: var(--serif); font-weight: 500; font-size: 64px; line-height: 1.05; letter-spacing: -0.01em; }
+p { font-size: 22px; line-height: 1.45; color: var(--muted); }
+p strong { color: var(--ink); font-weight: 600; }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 12px; }
+.foot { position: absolute; left: 96px; right: 96px; bottom: 40px; display: flex; justify-content: space-between; font-size: 15px; color: var(--muted); letter-spacing: 0.04em; }
+.foot b { color: var(--copper); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 13px; }
+
+/* slide 1 */
+.s1-main { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 72px; align-items: center; flex: 1; }
+.s1-left { display: flex; flex-direction: column; gap: 28px; }
+.rule { display: flex; gap: 24px; }
+.rule .card { flex: 1; padding: 22px 24px; border-top: 4px solid var(--c); display: flex; flex-direction: column; gap: 8px; }
+.rule .label { color: var(--c); font-size: 13px; }
+.rule .t { font-family: var(--serif); font-size: 30px; line-height: 1.1; }
+.rule .d { font-size: 17px; color: var(--muted); line-height: 1.35; }
+.ticket-wrap { position: relative; display: grid; place-items: center; height: 640px; }
+.burst { position: absolute; inset: 0; border-radius: 24px; background: repeating-conic-gradient(from 0deg, var(--forest) 0deg 9deg, #26472f 9deg 18deg); }
+.ticket { position: relative; width: 520px; height: 300px; background: var(--gold); border-radius: 18px; transform: rotate(-7deg); box-shadow: 0 30px 60px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; gap: 18px; padding: 0 40px; }
+.ticket::before, .ticket::after { content: ""; position: absolute; top: 50%; width: 56px; height: 56px; background: var(--forest); border-radius: 50%; transform: translateY(-50%); }
+.ticket::before { left: -28px; } .ticket::after { right: -28px; }
+.ticket .blur { font-family: var(--serif); font-weight: 600; font-size: 190px; color: var(--forest); filter: blur(18px); line-height: 1; }
+.ticket .pct { font-family: var(--serif); font-weight: 600; font-size: 190px; color: var(--forest); line-height: 1; }
+.ticket .tag { position: absolute; top: 22px; left: 0; right: 0; text-align: center; font-size: 16px; font-weight: 700; letter-spacing: 0.2em; color: var(--forest); }
+.ticket .date { position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--forest); }
+.flow { display: flex; align-items: stretch; gap: 0; }
+.flow .st { flex: 1; padding: 18px 20px; border-left: 1.5px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.flow .st:first-child { border-left: 0; padding-left: 0; }
+.flow .n { font-family: var(--serif); font-size: 26px; color: var(--c); }
+.flow .x { font-size: 16px; color: var(--muted); line-height: 1.3; }
+
+/* slide 2 */
+.s2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
+.col { display: flex; flex-direction: column; gap: 18px; }
+.col-h { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--forest); padding-bottom: 12px; }
+.col-h h3 { font-family: var(--serif); font-weight: 500; font-size: 34px; }
+.items { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.item { padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.item-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.item h4 { font-size: 21px; font-weight: 700; }
+.item p { font-size: 16.5px; line-height: 1.38; }
+.chip { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; white-space: nowrap; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); }
+.item.wide { grid-column: span 2; }
+.quote { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--ink); line-height: 1.3; }
+
+/* slide 3 */
+.gantt { padding: 28px 32px 22px; display: grid; grid-template-columns: 260px 1fr; row-gap: 14px; column-gap: 24px; }
+.g-name { font-size: 19px; font-weight: 700; align-self: center; }
+.g-name span { display: block; font-size: 15px; font-weight: 400; color: var(--muted); }
+.g-track { position: relative; display: grid; grid-template-columns: repeat(45, 1fr); height: 44px; background: #f4f0e8; border-radius: 6px; }
+.g-tick { position: absolute; top: -6px; bottom: -6px; width: 1.5px; background: var(--line); }
+.g-bar { position: relative; z-index: 1; grid-row: 1; border-radius: 6px; background: var(--c); color: #fff; font-size: 15px; font-weight: 700; display: flex; align-items: center; padding: 0 12px; white-space: nowrap; overflow: hidden; }
+.g-bar.ghost { background: transparent; border: 2px dashed var(--c); color: var(--c); }
+.g-axis { grid-column: 2; display: grid; grid-template-columns: repeat(45, 1fr); font-size: 15px; color: var(--muted); border-top: 1.5px solid var(--line); padding-top: 10px; }
+.g-axis span { white-space: nowrap; }
+.g-axis .hot { color: var(--coral); font-weight: 700; }
+.money { display: grid; grid-template-columns: 1fr 1fr 1fr 1.25fr; gap: 20px; }
+.m { padding: 22px 26px; display: flex; flex-direction: column; gap: 6px; }
+.m .big { font-family: var(--serif); font-size: 50px; line-height: 1.05; }
+.m p { font-size: 16.5px; line-height: 1.35; }
+.m.total { background: var(--forest); border-color: var(--forest); color: var(--forest-ink); }
+.m.total .label, .m.total p { color: rgba(243,239,228,0.75); }
+.m.total .big { font-size: 64px; }
+</style>
+</head>
+<body>
+
+<!-- ============ SLIDE 1 ============ -->
+<section class="slide" id="s1">
+  <div class="top">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#f3efe4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z"/><path d="M12 14.5c0-3.2-2.4-5.2-5.6-5.2 0 3.2 2.4 5.2 5.6 5.2Z"/></svg></div>
+      <div><div class="brand-name">Ecologie</div><div class="brand-sub">Black November · Sparks Lab</div></div>
+    </div>
+    <div class="pill">A ideia · 1/3</div>
+  </div>
+
+  <div class="s1-main">
+    <div class="s1-left">
+      <div class="eyebrow"><b>Campanha</b> · lançamento meteórico</div>
+      <h1>O Segredo<br>de <em>12/11</em></h1>
+      <p style="max-width: 900px">A maior oferta da história da Ecologie: <strong>1 ano de proteção e nutrição pela metade do preço</strong>. Os anúncios não revelam o desconto. Eles criam curiosidade e levam o público para um <strong>grupo no WhatsApp</strong>, onde o segredo é revelado.</p>
+
+      <div class="rule">
+        <div class="card" style="--c: var(--leaf)">
+          <span class="label">No anúncio</span>
+          <span class="t">A data é clara</span>
+          <span class="d">12/11 em destaque, sempre</span>
+        </div>
+        <div class="card" style="--c: var(--copper)">
+          <span class="label">No anúncio</span>
+          <span class="t">O desconto é segredo</span>
+          <span class="d">Número borrado, % nítido</span>
+        </div>
+        <div class="card" style="--c: var(--coral)">
+          <span class="label">No grupo</span>
+          <span class="t">A revelação</span>
+          <span class="d">Só quem entrar vai saber</span>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="st" style="--c: var(--leaf)"><span class="n">Anúncios</span><span class="x">Público quente: seguidores e clientes</span></div>
+        <div class="st" style="--c: var(--forest)"><span class="n">Grupo</span><span class="x">Entrada com vagas limitadas</span></div>
+        <div class="st" style="--c: var(--copper)"><span class="n">Aquecimento</span><span class="x">Mensagens, áudios e vídeos por 11 dias</span></div>
+        <div class="st" style="--c: var(--coral)"><span class="n">Abertura</span><span class="x">Link liberado em 12 e 13/11</span></div>
+      </div>
+    </div>
+
+    <div class="ticket-wrap">
+      <div class="burst"></div>
+      <div class="ticket">
+        <span class="tag">BLACK NOVEMBER ECOLOGIE</span>
+        <span class="blur">50</span><span class="pct">%</span>
+        <span class="date">revelado em 12/11</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 2 ============ -->
+<section class="slide" id="s2">
+  <div class="top">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#f3efe4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z"/><path d="M12 14.5c0-3.2-2.4-5.2-5.6-5.2 0 3.2 2.4 5.2 5.6 5.2Z"/></svg></div>
+      <div><div class="brand-name">Ecologie</div><div class="brand-sub">Black November · Sparks Lab</div></div>
+    </div>
+    <div class="pill">Criativos · 2/3</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <div class="eyebrow"><b>Criativos</b> · cada peça testa um ângulo diferente</div>
+    <h2>Curiosidade que faz <em>sair do Instagram</em></h2>
+  </div>
+
+  <div class="s2-grid">
+    <div class="col">
+      <div class="col-h"><h3>Estáticos e motion</h3><span class="label">7 peças · 4:5 e 9:16</span></div>
+      <div class="items">
+        <div class="card item wide">
+          <div class="item-top"><h4>Quem é esse desconto?</h4><span class="chip" style="--c: var(--leaf)">Estático · A/B</span></div>
+          <p>Silhuetas dos produtos, como em "Quem é esse Pokémon?", e um ticket com o número borrado. Duas versões de título: <strong>Você foi selecionado</strong> e <strong>Acesso antecipado</strong>.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Cadeado de segredo</h4><span class="chip" style="--c: var(--copper)">Motion</span></div>
+          <p>As rodinhas giram de 5% até travar em 50%.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Raspadinha</h4><span class="chip" style="--c: var(--copper)">Motion</span></div>
+          <p>Raspa só o começo do 5. O resto, só em 12/11.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Envelope confidencial</h4><span class="chip" style="--c: var(--leaf)">Estático</span></div>
+          <p>"Vazou": envelope lacrado com o ticket escapando.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Preço bloqueado</h4><span class="chip" style="--c: var(--leaf)">Estático</span></div>
+          <p>Produtos atrás de vidro fosco, com um cadeado.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Notificação</h4><span class="chip" style="--c: var(--copper)">Motion</span></div>
+          <p>Celular vibra às 00h de 12/11 com o aviso do grupo.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Data gigante</h4><span class="chip" style="--c: var(--muted)">Controle</span></div>
+          <p>Só tipografia: "12/11 · Guarde essa data".</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="col-h"><h3>Vídeos com Pilz e Mari</h3><span class="label">5 roteiros · 9:16</span></div>
+      <div class="items">
+        <div class="card item wide">
+          <div class="item-top"><h4>O envelope</h4><span class="chip" style="--c: var(--coral)">Fábrica</span></div>
+          <p>Pilz esconde o envelope do desconto e Mari tenta descobrir o valor.</p>
+          <span class="quote">"Desconto de quanto?" "Não posso falar."</span>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Praga não tira férias</h4><span class="chip" style="--c: var(--coral)">Jardim</span></div>
+          <p>Abre com cochonilhas e pulgões e termina no segredo de 12/11.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>O ticket</h4><span class="chip" style="--c: var(--coral)">Jardim</span></div>
+          <p>Mari raspa um ticket físico e para no meio do número.</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Cartazes</h4><span class="chip" style="--c: var(--coral)">Sem fala</span></div>
+          <p>Mari passa cartazes escritos à mão, um por um, até o "entre no grupo".</p>
+        </div>
+        <div class="card item">
+          <div class="item-top"><h4>Direto ao ponto</h4><span class="chip" style="--c: var(--muted)">Controle</span></div>
+          <p>Pilz fala para a câmera: data, desconto histórico e grupo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 3 ============ -->
+<section class="slide" id="s3">
+  <div class="top">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#f3efe4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z"/><path d="M12 14.5c0-3.2-2.4-5.2-5.6-5.2 0 3.2 2.4 5.2 5.6 5.2Z"/></svg></div>
+      <div><div class="brand-name">Ecologie</div><div class="brand-sub">Black November · Sparks Lab</div></div>
+    </div>
+    <div class="pill">Cronograma · 3/3</div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <div class="eyebrow"><b>Linha do tempo</b> · 14/out a 27/nov 2026</div>
+    <h2>Do teste à <em>segunda chamada</em></h2>
+  </div>
+
+  <div class="card"><div class="gantt" id="gantt"></div></div>
+
+  <div class="money">
+    <div class="card m">
+      <span class="label">Teste · 19/out – 01/nov</span>
+      <span class="big">R$560</span>
+      <p>R$40/dia × 14 dias, em 2 ondas de criativos</p>
+    </div>
+    <div class="card m">
+      <span class="label">Captação · 02 – 12/nov</span>
+      <span class="big">R$1.650</span>
+      <p>R$150/dia × 11 dias nos criativos vencedores</p>
+    </div>
+    <div class="card m">
+      <span class="label">Reserva</span>
+      <span class="big">R$790</span>
+      <p>Escala dos melhores criativos e apoio à 2ª chamada em 27/11</p>
+    </div>
+    <div class="card m total">
+      <span class="label">Investimento estimado em mídia</span>
+      <span class="big">R$3.000</span>
+      <p>Meta Ads, de 19/out a 27/nov</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const d = (m, day) => m === 10 ? day - 14 : 17 + day;
+  const rows = [
+    { name: "Produção", sub: "oferta, copy, criativos", c: "var(--muted)", bars: [[d(10,14), d(10,19), "14 – 19/out"]] },
+    { name: "Edição dos vídeos", sub: "entram na onda 2", c: "var(--copper)", ghost: true, bars: [[d(10,20), d(10,26), "20 – 26/out"]] },
+    { name: "Teste de criativos", sub: "R$40/dia", c: "var(--leaf)", bars: [[d(10,19), d(10,25), "Onda 1 · estáticos"], [d(10,26), d(11,1), "Onda 2 · + vídeos"]] },
+    { name: "Captação forte", sub: "R$150/dia", c: "var(--forest)", bars: [[d(11,2), d(11,12), "02 – 12/nov"]] },
+    { name: "Aquecimento no grupo", sub: "WhatsApp", c: "var(--copper)", bars: [[d(11,2), d(11,12), "mensagens · áudios · vídeos"]] },
+    { name: "Oferta principal", sub: "abertura e 2ª chamada", c: "var(--coral)", bars: [[d(11,12), d(11,13), "12–13"], [d(11,27), d(11,27), ""]] },
+    { name: "Ofertas menores", sub: "quem ficou no grupo", c: "var(--copper)", ghost: true, bars: [[d(11,14), d(11,26), "14 – 26/nov"]] }
+  ];
+  const g = document.getElementById("gantt");
+  rows.forEach(r => {
+    const n = document.createElement("div");
+    n.className = "g-name";
+    n.innerHTML = r.name + "<span>" + r.sub + "</span>";
+    const t = document.createElement("div");
+    t.className = "g-track";
+    [5, 12, 19, 26, 33, 40].forEach(i => {
+      const k = document.createElement("i");
+      k.className = "g-tick";
+      k.style.left = (i / 45 * 100) + "%";
+      t.appendChild(k);
+    });
+    r.bars.forEach(([s, e, label]) => {
+      const b = document.createElement("div");
+      b.className = "g-bar" + (r.ghost ? " ghost" : "");
+      b.style.setProperty("--c", r.c);
+      b.style.gridColumn = (s + 1) + " / " + (e + 2);
+      b.textContent = label;
+      if (e - s < 3) { b.style.justifyContent = "center"; b.style.padding = "0"; }
+      t.appendChild(b);
+    });
+    g.append(n, t);
+  });
+  const axis = document.createElement("div");
+  axis.className = "g-axis";
+  [[d(10,14),"14/out"],[d(10,19),"19"],[d(10,26),"26"],[d(11,2),"02/nov"],[d(11,9),"09"],[d(11,12),"12",1],[d(11,16),"16"],[d(11,23),"23"],[d(11,27),"27",1]].forEach(([i, l, hot]) => {
+    const s = document.createElement("span");
+    s.style.gridColumn = (i + 1) + " / span 3";
+    s.style.gridRow = 1;
+    if (hot) s.className = "hot";
+    s.textContent = l;
+    axis.appendChild(s);
+  });
+  g.append(document.createElement("div"), axis);
+})();
+</script>
+</body>
+</html>
